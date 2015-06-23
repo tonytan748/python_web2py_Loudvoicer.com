@@ -1,0 +1,14 @@
+{{extend 'admin_layout.html'}}
+
+{{block center}}
+    <h3>栏目管理</h3>
+{{=form}}
+
+<table class="table">
+    <tr><td>标签名</td><td>标签描述</td><td>排序</td><td>管理</td></tr>
+    {{for categorie in categories:}}
+        <tr><td>{{=categorie.name}}</td><td>{{=categorie.description}}</td><td>{{=categorie.sort_num}}</td><td><button>{{=A('修改',callback=URL('categorie_define',args=categorie.id))}}</button><br><button>{{=A('删除',callback=URL('categorie_delete',args=categorie.id))}}</button></td></tr>
+    {{pass}}
+</table>
+
+{{end}}

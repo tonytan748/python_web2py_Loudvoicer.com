@@ -1,0 +1,39 @@
+{{extend 'index_layout.html'}}
+
+{{block center}}
+
+    <div class="exploring">
+        <a class="delete-exploring" href="{{=URL('index')}}">首页<!--<span class="icon icon-cancel-squared"></span> --></a>  // 栏目 // <a href="{{=URL('categorie',args=[catname.id,1])}}">{{=catname.name}}</a>
+    </div>
+
+<div class="row">
+{{if rows:}}
+{{for row in rows:}}
+
+<div id="post-{{=row.id}}" class="photo-thumb col-xs-6 col-sm-4 post-{{=row.id}} post type-post status-publish format-standard has-post-thumbnail hentry category-nature sizes-x-large specialtags-cover">
+    <figure> 
+        <a class="photo-link" href="{{=URL('show',args=row.id)}}" title="{{=row.title}}"> <img width="500" height="375" src="{{=os.path.join(imgpath,'smallpic',row.picurl)}}" class="attachment-photo-thumb wp-post-image" alt="{{=row.picdescription}}" /><!--<div class="overlay"> <span class="icon icon-cc"></span><span class="icon icon-cc-by"></span><span class="icon icon-cc-sa"></span><div class="zoom">CC BY-SA PHOTO</div></div> --></a> 
+        <figcaption><div class="photo-author"> <!--<img width="96" height="96" src="http://magdeleine.co/wp-content/uploads/2015/01/36741_131400070230706_460516_n-96x96.jpg" class="avatar avatar-96 photo wp-post-image" alt="36741_131400070230706_460516_n" />--> 
+            <a href="" title="{{=row.picauthor}}" rel="author">{{=row.picauthor}}</a></div>
+            <div class="photo-love-sm"> <a href="#" class="jm-post-like" data-post_id="{{=row.id}}" title="赞一个"><span class="icon icon-heart-empty"></span></a>
+                <div class="main-title">{{=row.zan}}<span class="love-word"> 点赞</span></div><span class="jm-load"></span></div> </figcaption> </figure></div>
+
+{{pass}}
+{{pass}}
+</div>
+
+<nav class="navigation paging-navigation" role="navigation">
+    <div class="nav-links clearfix">
+        {{if int(page)>0 and start>0:}}
+        <div class="nav-next pull-left"><a href="{{=URL('categorie',args=[catid,int(page)-1])}}" ><span class="meta-nav">&larr;</span> 上一页</a></div>
+        {{pass}}
+       <!-- <div class="nav-previous pull-right"><a href="{{=URL('categorie',args=int(page)+1)}}" >下一页<span class="meta-nav">&rarr;</span></a></div>-->
+        {{if stop < listcount:}}
+            <div class="nav-previous pull-right"><a href="{{=URL('categorie',args=[catid,int(page)+1])}}" >下一页<span class="meta-nav">&rarr;</span></a></div>
+        {{pass}}
+    </div>
+</nav>
+
+
+
+{{end}}

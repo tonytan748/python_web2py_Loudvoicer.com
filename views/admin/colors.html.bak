@@ -1,0 +1,19 @@
+{{extend 'admin_layout.html'}}
+
+{{block center}}
+    <h3>颜色管理</h3>
+
+   {{=form}}
+
+<table class="table">
+    <ul class="nav-color">
+    <tr><td>颜色名</td><td>描述</td><td>英文名</td><td>图片</td><td>管理</td></tr>
+    {{for color in colors:}}
+    <tr><td>{{=color.name}}</td><td>{{=color.description}}</td><td>{{=color.engname}}</td>
+        <td><li class="nav-{{=color.engname}}" data-toggle="tooltip" data-original-title="{{=color.name}}"> <a href=""><span class="color-shape"></span><span class="color-name"></span></a></li></td>
+        <td><button>{{=A('修改',callback=URL('color_define',args=color.id))}}</button><br><button>{{=A('删除',callback=URL('color_delete',args=color.id))}}</button></td></tr>
+
+    {{pass}}
+    </ul>
+</table>
+{{end}}

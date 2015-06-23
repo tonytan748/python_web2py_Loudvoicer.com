@@ -1,0 +1,64 @@
+{{extend 'admin_layout.html'}}
+{{block center}}
+{{import os}}
+<h3>
+    图片管理
+</h3>
+<h5>
+    图片列表
+</h5>
+
+<table>
+    <tr><td>图片</td>
+        <td>标题</td>
+        <td>分类</td>
+        <td>颜色</td>
+        <td>属性</td>
+        <td>图片来源</td>
+        <td>作者</td>
+        <td>链接</td>
+        <td>关键字</td>
+        <td>摘要</td>
+        <td>详细内容</td>
+        <td>图片大小</td>
+        <td>图片尺寸</td>
+        <td>相机型号</td>
+        <td>点击量</td>
+        <td>点赞量</td>
+        <td>管理</td></tr>
+    {{if rows:}}
+        {{for img in rows:}}
+        <tr><td>{{=IMG(_src=os.path.join(imgpath,'resizepic',img.picurl),_width=150,_height=150)}}</td><!--图片-->
+            <td>{{=img.title}}</td>                          <!--标题-->
+            <td>{{=img.categories}}</td>               <!--分类-->
+            <td>{{for image in img.colors:}}
+                    {{=image}}
+                {{pass}}
+                </td>                      <!--颜色-->
+            <td>{{=img.picattribute}}</td>            <!--属性-->
+            <td>{{=img.picfrom}}</td>                  <!--图片来源-->
+            <td>{{=img.picauthor}}</td>               <!--作者-->
+            <td>{{=img.linkurl}}</td>                     <!--链接-->
+            <td>{{=img.pickeywords}}</td>          <!--关键字-->
+            <td>{{=img.picdescription}}</td>       <!--摘要-->
+            <td>{{=img.piccontent}}</td>             <!--详细内容-->
+            <td>{{=img.picresolution}}</td>         <!--图片大小-->
+            <td>{{=img.picsize}}</td>                    <!--图片尺寸-->
+            <td>{{=img.camera}}</td>                  <!--相机型号-->
+            <td>{{=img.hits}}</td>                         <!--点击量-->
+            <td>{{=img.zan}}</td><td><button>           <!--点赞量-->
+            {{=A('修改',_href=URL('pic_define',args=img.id))}}
+            </button><button>
+            {{=A('删除',_href=URL('pic_delete',args=img.id))}}
+            </button></td></tr>
+        {{pass}}
+    {{pass}}
+</table>
+{{if int(page)>0:}}
+    <button>{{=A('上一页',_href=URL('piclist',args=int(page)-1))}}</button>
+{{pass}}
+{{if page:}}
+    <button>{{=A('下一页',_href=URL('piclist',args=int(page)+1))}}</button>
+{{pass}}
+
+{{end}}

@@ -1,0 +1,69 @@
+<ul>
+    <li>
+        <form role="search" method="get" class="search-form" action="{{=URL('index')}}"> 
+            <label>
+                <span class="screen-reader-text">搜索:</span>
+                    <input type="search" class="search-field form-control search" placeholder="搜索 …" value="" name="s" title="搜索:"> 
+                    <span class="icon icon-search"></span>
+            </label> 
+            <input type="submit" id="searchform-submit" class="search-submit" value="搜索">
+        </form>
+    </li>
+</ul>
+{{if not db(db.webadmin).isempty():}}
+<span id='_cookie_block_1' class='upds_cookie_policy'>
+    <h3 class="sidebar-title ads-title">关于我们</h3>
+    <div class="photo-thumb ads">
+          {{about=db(db.webadmin).select().first()}}
+          <div class="pic"><a href="{{=URL('about',args=1)}}"><img src="=URL(imgpath,'uploads',about.pic)"></a></div>
+          <div class="text">
+              {{if about.description:}}
+                  <h4>{{=A(about.description)}}</h4>
+              {{else:}}
+               <a></a>
+              {{pass}}
+          </div>
+    </div>
+</span>
+{{pass}}
+{{if not db(db.categories).isempty():}}
+<h4 class="sidebar-title"><span class="icon icon-bucket"></span>作品类别</h4>
+<ul class="nav-category">
+     {{for categorie in db().select(db.categories.ALL):}}
+            <li> <a href="{{=URL('categorie',args=[categorie.id,1])}}" title="{{=categorie.name}}">{{=categorie.name}}</a></li>
+     {{pass}}
+</ul>
+{{pass}}
+{{if not db(db.colors).isempty():}}
+<h4 class="sidebar-title"><span class="icon icon-droplet"></span>主要色值</h4>
+<ul class="nav-color">
+    {{for color in db(db.colors).select():}}
+    <li class="nav-{{=color.engname}}" data-toggle="tooltip" data-original-title="{{=color.description}}"> <a href=""><span class="color-shape"></span><span class="color-name">{{=color.name}}</span></a></li>
+    {{pass}}
+    <!--<li class="nav-red" data-toggle="tooltip" data-original-title="红色"> <a href=""><span class="color-shape"></span><span class="color-name">红色</span></a></li>
+    <li class="nav-orange" data-toggle="tooltip" data-original-title="桔黄"> <a href=""><span class="color-shape"></span><span class="color-name">桔黄色</span></a></li>
+    <li class="nav-yellow" data-toggle="tooltip" data-original-title="黄色"> <a href=""><span class="color-shape"></span><span class="color-name">黄色</span></a></li>
+    <li class="nav-green" data-toggle="tooltip" data-original-title="绿色"> <a href=""><span class="color-shape"></span><span class="color-name">绿色</span></a></li>
+    <li class="nav-cyan" data-toggle="tooltip" data-original-title="青色"> <a href=""><span class="color-shape"></span><span class="color-name">青色</span></a></li>
+    <li class="nav-blue" data-toggle="tooltip" data-original-title="蓝色"> <a href=""><span class="color-shape"></span><span class="color-name">蓝色</span></a></li>
+    <li class="nav-purple" data-toggle="tooltip" data-original-title="紫色"> <a href=""><span class="color-shape"></span><span class="color-name">紫色</span></a></li>
+    <li class="nav-pink" data-toggle="tooltip" data-original-title="粉红"> <a href=""><span class="color-shape"></span><span class="color-name">粉红</span></a></li>
+    <li class="nav-brown" data-toggle="tooltip" data-original-title="棕色"> <a href=""><span class="color-shape"></span><span class="color-name">棕色</span></a></li>
+    <li class="nav-white" data-toggle="tooltip" data-original-title="白色"> <a href=""><span class="color-shape"></span><span class="color-name">白色</span></a></li>
+    <li class="nav-gray" data-toggle="tooltip" data-original-title="灰色"> <a href=""><span class="color-shape"></span><span class="color-name">灰色</span></a></li>
+    <li class="nav-black" data-toggle="tooltip" data-original-title="黑色"> <a href=""><span class="color-shape"></span><span class="color-name">黑色</span></a></li>
+    <li class="nav-blackwhite" data-toggle="tooltip" data-original-title="黑 &amp; 白"> <a href=""><span class="color-shape"></span><span class="color-name">黑 &amp; 白</span></a></li>-->
+</ul>
+{{pass}}
+{{if not db(db.news).isempty():}}
+<h4 class="sidebar-title"><span class="icon icon-bucket"></span>最新公告</h4>
+<ul class="nav-category">
+    {{last_new = db(db.news.id>0).select().last()}}
+				<li>
+					<a target="_blank" href="{{=URL('categorie',args=categorie.id)}}">{{last_new.name}}</a>
+				</li>
+     {{pass}}
+</ul>
+{{pass}}
+
+<a class="close-btn hidden" id="nav-close-btn" href="#top">Return to Content</a>

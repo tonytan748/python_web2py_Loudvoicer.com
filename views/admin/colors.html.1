@@ -1,0 +1,17 @@
+{{left_sidebar_enabled=True}}
+
+{{extend 'admin_layout.html'}}
+
+{{block center}}
+    <h3>颜色管理</h3>
+   {{=form}}
+
+<table class="table">
+    <tr><td>颜色名</td><td>颜色</td><td>图片</td><td>管理</td></tr>
+    {{for color in colors:}}
+    
+        {{(filename, stream) = db.colors.image.retrieve(color.image)}}
+        <tr><td>{{=color.name}}</td><td>{{=color.description}}</td><td><img src="{{=filename}}">filename={{=filename}}<br>stream= {{=stream}}</td><td><button> 修改</button><br><button>删除</button></td></tr>
+    {{pass}}
+</table>
+{{end}}

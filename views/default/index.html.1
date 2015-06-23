@@ -1,0 +1,86 @@
+{{extend 'layout.html'}}
+
+{{block center}}
+<div class="row">
+    {{=page}}
+
+    <div class="editor-picks clearfix">
+        <div id="post-{{=rows[0].id}}" class="photo-thumb col-xs-12 col-sm-8 editor editor-first post-{{=rows[0].id}} post type-post status-publish format-standard has-post-thumbnail hentry category-nature category-people tag-brown-dominant tag-editors-pick tag-gray-dominant tag-men tag-orange-dominant tag-roads tag-travel tag-trees tag-trip colors-dark-gray colors-dark-olive-green colors-dark-slate-cyan colors-dark-slate-gray colors-dim-gray colors-light-slate-gray colors-sienna colors-slate-gray cameras-5d cameras-canon cameras-eos cameras-mark-3 sizes-x-large licenses-cc0 specialtags-cover"><figure>
+            <a class="photo-link" href="{{=URL('')}}" title="{{rows[0].title}}">
+                <img width="860" height="683" src="{{=URL('uploads','resizepic',rows[0].picurl)}}" class="attachment-photo-thumb-feat wp-post-image" alt="{{=rows[0].picdescription}}" />
+                <!--<div class="overlay"><span class="icon icon-cc-zero"></span><div class="zoom">CC0 PHOTO</div></div>-->
+            </a>
+            <figcaption>
+                <div class="photo-author">
+                    <!--<img width="96" height="96" src="http://magdeleine.co/wp-content/uploads/2015/05/10413777_521957227930625_424449428_a-96x96.jpg" class="avatar avatar-96 photo wp-post-image" alt="10413777_521957227930625_424449428_a" />-->
+                    <a href="{{=URL('show',vars={'author',rows[0].picauthor})}}" title="{{=rows[0].picauthor}}" rel="author">{{=rows[0].picauthor}}</a>
+                </div>
+                <div class="photo-love-sm"><a href="#" class="jm-post-like" data-post_id="1533" title="赞一个"><span class="icon icon-heart-empty"></span></a>
+                    <div class="main-title">{{=rows[0].zan}}<span class="love-word">点赞</span></div>
+                    <span class="jm-load"></span>
+                </div>
+            </figcaption>
+            </figure>
+            <div class="editors-label"></div></div>
+
+        <div id="post-{{=rows[1].id}}" class="photo-thumb col-xs-6 col-sm-4 editor editor-others post-{{=rows[1].id}} post type-post status-publish format-standard has-post-thumbnail hentry category-nature tag-blue-dominant tag-editors-pick tag-fog tag-gray-dominant tag-landscapes tag-mountains tag-pink-dominant tag-rocks tag-trees colors-dark-gray colors-dark-slate-gray colors-dim-gray colors-gray colors-rosy-brown colors-wheat places-california cameras-d610 cameras-nikon sizes-x-large licenses-attribution-required licenses-cc-by-nd specialtags-cover specialtags-exclusive">
+            <figure><a class="photo-link" href="" title="{{=rows[1].title}}">
+                    <img width="500" height="375" src="{{=URL('uploads','resizepic',rows[1].picurl)}}" class="attachment-photo-thumb wp-post-image" alt="{{=rows[1].picdescription}}" /><!--<div class="overlay"><span class="icon icon-cc"></span><span class="icon icon-cc-by"></span><span class="icon icon-cc-nd"></span><div class="zoom">CC BY-ND PHOTO</div></div>--></a>
+                <figcaption>
+                    <div class="photo-author">
+                        <!--<img width="96" height="96" src="" class="avatar avatar-96 photo wp-post-image" alt="1619465_614889411934221_2057380694_n" />-->
+                        <a href="{{=URL('show',vars={'author':rows[1].picauthor})}}" title="{{=rows[1].picauthor}}" rel="author">{{=rows[1].picauthor}}</a>
+                    </div>
+                    <div class="photo-love-sm"><a href="#" class="jm-post-like" data-post_id="1073" title="赞一个"><span class="icon icon-heart-empty"></span></a>
+                        <div class="main-title">{{=rows[1].zan}}<span class="love-word"> 点赞</span></div>
+                        <span class="jm-load"></span>
+                    </div>
+                </figcaption>
+            </figure>
+            <div class="editors-label"></div></div>
+
+        <div id="post-{{=rows[2].id}}" class="photo-thumb col-xs-6 col-sm-4 editor editor-others post-{{=rows[2].id}} post type-post status-publish format-standard has-post-thumbnail hentry category-nature tag-black-dominant tag-city tag-country tag-cyan-dominant tag-editors-pick tag-fields tag-fog tag-grass tag-haze tag-pink-dominant tag-sky colors-black colors-dark-gray colors-dark-slate-gray colors-dim-gray colors-gray colors-light-gray colors-rosy-brown colors-slate-gray colors-steel-blue places-switzerland cameras-leica cameras-m9 sizes-x-large licenses-attribution-required licenses-cc-by specialtags-cover"><figure> 
+            <a class="photo-link" href="{{=rows[2].title}}" title="{{=rows[2].title}}">
+                <img width="500" height="375" src="{{=URL('uploads','resizepic',rows[2].picurl)}}" class="attachment-photo-thumb wp-post-image" alt="{{=rows[2].picdescription}}" />
+                <!--<div class="overlay"><span class="icon icon-cc"></span><span class="icon icon-cc-by"></span><div class="zoom">CC BY PHOTO</div></div>-->
+            </a><figcaption>
+            <div class="photo-author"><!--<img width="96" height="96" src="http://magdeleine.co/wp-content/uploads/2014/10/a1p09yl9-96x96.jpeg" class="avatar avatar-96 photo wp-post-image" alt="a1p09yl9" />-->
+                <a href="{{=URL('show',vars={'author':rows[2].picauthor})}}" title="{{=rows[2].picauthor}}" rel="author">{{=rows[2].picauthor}}</a>
+            </div>
+            <div class="photo-love-sm"><a href="#" class="jm-post-like" data-post_id="741" title="赞一个"><span class="icon icon-heart-empty"></span></a>
+                <div class="main-title">{{=rows[2].zan}}<span class="love-word"> 点赞</span></div><span class="jm-load"></span></div></figcaption></figure>
+            <div class="editors-label"></div>
+        </div>
+        
+    </div>
+
+       
+        <div id="post-{{=row.id}}" class="photo-thumb col-xs-6 col-sm-4 post-{{=row.id}} post type-post status-publish format-standard has-post-thumbnail hentry category-macro category-nature tag-beach tag-gray-dominant tag-pink-dominant tag-sand tag-stones tag-white-dominant colors-dark-slate-cyan colors-dark-slate-gray colors-dim-gray colors-gainsboro colors-gray colors-tan places-michigan places-usa sizes-large licenses-cc0 specialtags-cover"> <figure> 
+            <a class="photo-link" href="{{=URL('show',args=row.id)}}" title="{{=row.title}}"> 
+                <img width="500" height="375" src="{{=URL('uploads','resizepic',row.picurl)}}" class="attachment-photo-thumb wp-post-image" alt="{{=row.picdescription}}" /><!--<div class="overlay"> <span class="icon icon-cc-zero"></span><div class="zoom">CC0 PHOTO</div></div>--> </a> <figcaption><div class="photo-author"> <!--<img width="96" height="96" src="http://magdeleine.co/wp-content/uploads/2014/06/pYEsqw0k_400x400-96x96.jpeg" class="avatar avatar-96 photo wp-post-image" alt="pYEsqw0k_400x400" /> --><a href="{{=URL('show',vars={'author':row.picauthor})}}" title="{{=row.picauthor}}" rel="author">{{=row.picauthor}}</a></div><div class="photo-love-sm"> <a href="#" class="jm-post-like" data-post_id="1620" title="赞一个"><span class="icon icon-heart-empty"></span></a><div class="main-title">{{=row.zan}}<span class="love-word"> 点赞</span></div><span class="jm-load"></span></div> </figcaption> </figure></div>
+    
+        
+        {{for row in rows:}}
+        <div id="post-{{=row.id}}" class="photo-thumb col-xs-6 col-sm-4 post-{{=row.id}} post type-post status-publish format-standard has-post-thumbnail hentry places-michigan places-usa sizes-large licenses-cc0 specialtags-cover"> <figure> 
+            <a class="photo-link" href="{{=URL('show',args=row.id)}}" title="{{=row.title}}"> 
+                <img width="500" height="375" src="{{=URL('uploads','resizepic',row.picurl)}}" class="attachment-photo-thumb wp-post-image" alt="{{=row.picdescription}}" /><!--<div class="overlay"> <span class="icon icon-cc-zero"></span><div class="zoom">CC0 PHOTO</div></div>--> </a> <figcaption><div class="photo-author"> <!--<img width="96" height="96" src="http://magdeleine.co/wp-content/uploads/2014/06/pYEsqw0k_400x400-96x96.jpeg" class="avatar avatar-96 photo wp-post-image" alt="pYEsqw0k_400x400" /> --><a href="{{=URL('show',vars={'author':row.picauthor})}}" title="{{=row.picauthor}}" rel="author">{{=row.picauthor}}</a></div><div class="photo-love-sm"> <a href="#" class="jm-post-like" data-post_id="1620" title="赞一个"><span class="icon icon-heart-empty"></span></a><div class="main-title">{{=row.zan}}<span class="love-word"> 点赞</span></div><span class="jm-load"></span></div> </figcaption> </figure></div>
+
+    
+        {{pass}}
+    <!--{{pass}}-->
+</div>
+
+
+<nav class="navigation paging-navigation" role="navigation">
+    <div class="nav-links clearfix">
+        {{if int(page)>0:}}
+        <div class="nav-next pull-left"><a href="{{=URL('index',args=int(page)-1)}}" ><span class="meta-nav">&larr;</span> 上一页</a></div>
+        {{pass}}
+        {{if page:}}
+        <div class="nav-previous pull-right"><a href="{{=URL('index',args=int(page)+1)}}" >下一页<span class="meta-nav">&rarr;</span></a></div>
+        {{pass}}
+    </div>
+</nav>
+
+
+{{end}}

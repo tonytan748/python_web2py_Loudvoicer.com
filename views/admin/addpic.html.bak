@@ -1,0 +1,15 @@
+{{extend 'admin_layout.html'}}
+
+
+<h3>图片管理</h3>
+<h5>增加图片</h5>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+$(".col").click(function(){
+    $(".colors").slideToggle("slow");
+  });
+});
+</script>
+
+{{=form}}

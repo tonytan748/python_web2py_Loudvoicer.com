@@ -1,0 +1,70 @@
+{{extend 'index_layout.html'}}
+
+{{block center}}
+
+<div class="row">
+<div class="exploring"><a class="delete-exploring" href="{{=URL('index')}}">首页<!--<span class="icon icon-cancel-squared"></span> --></a>  // <a href="">{{if request.args(0)=='login':}}登陆{{else:}}注册{{pass}}</a></div>
+<article id="post-94" class="col-sm-12 page type-page status-publish hentry">
+	{{if request.args(0)=='register':}}
+        <header class="entry-header"><h2 class="entry-title">为什么注册？</h2></header>
+        <div class="entry-content">
+            <div class="intro"><p>注册后您可以享loudvioces提供给您的更多服务：下载无水印小样图第一时间了解最新上线的新图像，视觉趋势和搜索工具建立收藏夹，与朋友分享喜欢的图像获得网站积分，参与网站线上有奖活动如您希望获得高质量小样图下载功能，并享受高级会员服务，请在此注册。</p></div>
+    {{else:}}
+        <div class="entry-content">
+    {{pass}}
+        <div class="screen-reader-response"></div>
+        {{if request.args(0)=='login' and not session.auth_2_factor_user:}}
+
+            <form action="?a=login" method="post" class="form" enctype="multipart/form-data" novalidate="novalidate" id="form">
+                <table  border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td><span class="asterisk">*</span>用户名 </td>
+				        <td><input type="text" name="username" class="input">
+                       <span class="tips-lable">用户名长度不可少于3个或大于32个字符</span></td>
+                    </tr>
+				            		<tr>
+				              			<td><span class="asterisk">*</span>密    码 </td>
+				              			<td><input type="password" name="password" id="pass" class="input">
+                                       <span class="tips-lable">(至少6位字符串)</span></td>
+				            		</tr>
+						<tr>
+				              			<td colspan="2"><button class="btn-submit" type="submit">登录</button></td>
+				            		</tr>
+				          	</table>
+				</form>
+			{{else:}}
+				<h3>请填写注册信息( * 为必填项)</h3>
+				<form id="form" method="post" action="?a=register">
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td><span class="asterisk">*</span>用户名 </td>
+							<td><input type="text" name="username" class="input"><span class="tips-lable">用户名长度不可少于3个或大于32个字符</span></td>
+						</tr>
+						<tr>
+							<td><span class="asterisk">*</span>密    码 </td>
+							<td><input type="password" name="password" id="pass" class="input"><span class="tips-lable">(至少6位字符串)</span></td>
+						</tr>
+						<tr>
+							<td><span class="asterisk">*</span>再次输入密码 </td>
+							<td><input type="password" name="repassword" id="repass" class="input"><span class="tips-lable"></span></td>
+						</tr>
+						<tr>
+							<td><span class="asterisk">*</span>Email </td>
+							<td><input type="text" name="email" class="input"><span class="tips-lable">(由于易产生退信,请尽量避免使用新浪VIP邮箱和Hotmail邮箱)</span></td>
+						</tr>
+						<tr>
+							<td colspan="2"><br><label class="ceklabel"><input class="checkbox" type="checkbox">&nbsp;我接受loudvioces注册条款</label><br><br></td>
+						</tr>
+						<tr>
+							<td colspan="2"><button class="btn-submit" type="submit">确定注册</button></td>
+						</tr>
+					</table>
+				</form>
+
+			{{pass}}
+
+    </div>
+    </div> <!--entry-content-->
+</article>
+
+{{end}}

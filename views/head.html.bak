@@ -1,0 +1,22 @@
+<h1><a href="{{=URL('index')}}" rel="home"><img src="{{=URL('static','images/logo1.png')}}"></a></h1>
+<h2 class="headline"></h2>
+<div class="pull-right header-right">
+<!--
+    <a class="right-icon nav-btn" id="nav-open-btn" href="#nav" data-toggle="tooltip" data-original-title="Show side menu" data-placement="bottom" data-delay='{"show":"1000"}'>
+        <span class="icon icon-menu"></span>
+        <span class="right-text">Explore</span>
+    </a>
+-->
+    
+    {{if not auth.user:}}
+    <a class="right-icon submit" href="{{=URL('default','user/login')}}" data-toggle="tooltip" data-original-title="登录" data-placement="bottom" data-delay='{"show":"1000"}'> 
+<!--        <span class="icon icon-publish"></span>-->
+        <span class="right-text">登录</span>
+    </a>
+    
+    <a class="right-icon submit" href="{{=URL('default','user/register')}}" data-toggle="tooltip" data-original-title="注册" data-placement="bottom" data-delay='{"show":"1000"}'> 
+<!--        <span class="icon icon-publish"></span>-->
+        <span class="right-text">注册</span>
+    </a>
+    {{pass}}
+</div>

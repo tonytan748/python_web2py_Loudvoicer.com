@@ -1,0 +1,16 @@
+{{extend 'admin_layout.html'}}
+{{=BEAUTIFY(response._vars)}}
+
+{{for inf in info:}}
+    {{=inf.webname}}
+    {{=inf.weburl}}
+    {{=IMG(_src=inf.logo)}}
+    {{=inf.pic}}
+    {{=inf.author}}
+    {{=inf.seotitle}}
+    {{=inf.keyword}}
+    {{=inf.description}}
+    {{=inf.copyright}}
+    {{=inf.hotline}}
+    {{=inf.icp}}
+{{pass}}

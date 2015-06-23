@@ -1,0 +1,15 @@
+{{extend 'admin_layout.html'}}
+
+{{block center}}
+<h3>新闻管理</h3>
+<h5>新闻列表</h5>
+<table class="table">
+    <tr><td>新闻标题</td><td>新闻内容</td><td>浏览量</td><td>管理</td></tr>
+    {{if news:}}
+    {{for new in news:}}
+        <tr><td>{{=new.title}}</td><td>{{=new.contents}}</td><td>{{=new.views}}</td><td><button>{{=A('修改',callback=URL('new_define',args=new.id))}}</button><br><button>{{=A('删除',callback=URL('new_delete',args=new.id))}}</button></td></tr>
+    {{pass}}
+    {{pass}}
+</table>
+
+{{end}}

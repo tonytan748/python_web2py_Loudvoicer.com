@@ -1,0 +1,45 @@
+{{extend 'index_layout.html'}}
+
+{{block center}}
+
+<div id="post-{{=pic.id}}" class="col-sm-9 thumbs loading post-{{=pic.id}} post type-post status-publish format-standard has-post-thumbnail hentry category-nature category-people tag-brown-dominant tag-editors-pick tag-gray-dominant tag-men tag-orange-dominant tag-roads tag-travel tag-trees tag-trip colors-dark-gray colors-dark-olive-green colors-dark-slate-cyan colors-dark-slate-gray colors-dim-gray colors-light-slate-gray colors-sienna colors-slate-gray cameras-5d cameras-canon cameras-eos cameras-mark-3 sizes-x-large licenses-cc0 specialtags-cover">
+	<div class="exploring"> <a class="no-ref" href="{{=URL('default','index')}}"> <span class="icon icon-left-bold"></span>查看所有图片</a></div> 
+
+	<figure class="post big-photo-thumb"> 
+		<a class="lightbox" href="{{=os.path.join(imgpath,'resizepic',pic.picurl)}}"> <img width="860" height="573" src="{{=os.path.join(imgpath,'resizepic',pic.picurl)}}" class="attachment-single-big-thumb wp-post-image" alt="{{=pic.title}}" id="main-img" /> </a>
+
+<!--		<div class="license"> <a href="http://creativecommons.org/publicdomain/zero/1.0/" target="blank" title="CC0 / Public Domain: Do whatever you want with this photo" data-toggle="tooltip" data-container="body" data-original-title="CC0 / Public Domain: Do whatever you want with this photo"><div class="license-symbol pd-license"> <span class="icon icon-cc-zero"></span></div> </a></div>-->
+
+		<figcaption>
+			<h2 class="author"><span class="author vcard"> <a href="" title="{{=pic.picauthor}}" rel="author">{{=pic.picauthor}} </a> <!--<img width="96" height="96" src="http://magdeleine.co/wp-content/uploads/2015/05/10413777_521957227930625_424449428_a-96x96.jpg" class="avatar avatar-96 photo wp-post-image" alt="10413777_521957227930625_424449428_a" />--> </span></h2>
+			<!--<div class="social">
+				<ul><li><a href="https://instagram.com/atlas_green/" rel="author" title="Atlas Green on Instagram">Instagram</a></li></ul>
+			</div> -->
+		</figcaption> 
+	</figure>
+	<hr>
+
+	<div class="download"><a href="{{=os.path.join(imgpath,pic.picurl)}}" class="button download" title="下载图片" download="">下载图片</a></div>
+	<div class="photo-love">
+ 		<a href="#" class="jm-post-like" data-post_id="{{=pic.id}}" title="赞一个"><span class="icon icon-heart-empty"></span></a>
+ 		<div class="main-title">{{=pic.zan}}<span class="love-word"> 点赞</span></div>
+ 		<span class="jm-load"></span>
+ 	</div>
+ 	<hr> 
+ 	<aside class="related">
+ 		<h4 class="sidebar-title">其它类似图片</h4>
+ 		<div class="row">
+            {{for img in imgs:}}
+            <div class="photo-thumb col-sm-4"> 
+ 			<figure> 
+ 				<a class="photo-link" href="{{=URL('show',args=img.id)}}" title="{{=img.title}}"> <img width="500" height="375" src="{{=os.path.join(imgpath,'smallpic',img.picurl)}}" class="attachment-photo-thumb wp-post-image" alt="{{=img.title}}" /><div class="overlay"> <span class="icon icon-cc-zero"></span><!--<div class="zoom">CC0 PHOTO</div>--></div> </a> 
+ 			</figure>
+ 			</div>
+            {{pass}}
+
+ 		</div> 
+ 	</aside>
+ 	<div class="entry-content"></div>
+ </div>
+
+{{end}}
